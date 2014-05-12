@@ -4,7 +4,7 @@ body{overflow-x:hidden;overflow-y:hidden;background:#112233}
 #sideBar{position:absolute; left:1355px; top:0px;display:block;width:530px;height:755px;}
 #sideBar ul{list-style-type:none;}
 #sideBar ul li img{width:505px;height:380}
-#footer{clear:both;}
+#footer{}
 
 
 #bannerTop{
