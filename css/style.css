@@ -1,4 +1,4 @@
-body{overflow-x:hidden;overflow-y:hidden;background:#000000}
+body{overflow-x:hidden;overflow-y:hidden;background:#112233}
 #container{width:100%;height:100%;}
 #videoBox{width:1366px;height:768px;}
 #sideBar{position:absolute; left:1355px; top:0px;display:block;width:530px;height:755px;}
