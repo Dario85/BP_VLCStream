@@ -3,9 +3,10 @@ var m = 3;
 $( document ).ready(function() {
 	sideBarTop();
 	sideBarBottom();
+	loadText();
 	showNews();
-	$('#ch1').click(function(){channel(1)});
-	$('#ch2').click(function(){channel(2)});
+	//$('#ch1').click(function(){channel(1)});
+	//$('#ch2').click(function(){channel(2)});
 });
 
 function sideBarTop(){
@@ -36,6 +37,27 @@ function showNews() {
            }
            , 6000
       );
+}
+
+//Carica sia il testo a scorrimento di <marquee> sia i testi e le icone delle news a comparsa. I dati sono salvati in config/data.json
+function loadText(){
+	$.ajax({
+		url: "config/data.json",
+		dataType: "json",
+		success: function(data){
+			$('#bannerTop marquee p').text(data.marquee);
+			$.each(data.news, function(k) {
+				switch(data.news[k].iconType){
+					case "food":
+						$('#bannerBottom ul').append("<li><img src='src/food_icon.png'>"+ data.news[k].text);
+					break;
+					default:
+						$('#bannerBottom ul').append("<li>"+ data.news[k].text);
+					break;
+				}
+   		 });
+		}
+	});
 }
 
 //FUNZIONE PER CAMBIARE CANALE. USARE PLAYLIST VLC

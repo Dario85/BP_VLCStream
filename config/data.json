@@ -1,0 +1,11 @@
+{
+	"marquee": "Questo è un testo di prova fornito da BELL PRODUCTION",
+
+	"news":[
+		{"text":"Si informano i passeggeri che la cena sarà servita dalle 19:30","iconType":"food"},
+		{"text":"Il bar sta servendo un aperitivo di benvenuto","iconType":"food"},
+		{"text":"L'animazione in piscina per i bambini comincerà alle 15:00","iconType":"fun"},
+		{"text":"L'arrivo al porto di Genova è previsto per le 8:25","iconType":"service"},
+		{"text":"Lo spettacolo di questa sera avrà luogo in sala lounge 2 dalle ore 22:30","iconType":"night"}
+	]
+}
