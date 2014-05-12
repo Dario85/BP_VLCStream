@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:0,RAI 1
+#EXTVLCOPT:program=3401
+dvb-t://frequency=482000000
