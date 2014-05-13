@@ -7,5 +7,15 @@
 		{"text":"L'animazione in piscina per i bambini comincerà alle 15:00","iconType":"fun"},
 		{"text":"L'arrivo al porto di Genova è previsto per le 8:25","iconType":"service"},
 		{"text":"Lo spettacolo di questa sera avrà luogo in sala lounge 2 dalle ore 22:30","iconType":"night"}
+	],
+	
+	"imgBannerTop":[
+		{"url": "src/imgBannerTop/1.jpg"},
+		{"url": "src/imgBannerTop/2.jpg"}
+	],
+	
+	"imgBannerBottom":[
+		{"url": "src/imgBannerBottom/3.jpg"},
+		{"url": "src/imgBannerBottom/4.jpg"}
 	]
 }
