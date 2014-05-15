@@ -1,32 +1,36 @@
-var n = 1;
-var m = 3;
 $( document ).ready(function() {
-	loadData();
+	getData();
 	showNews();
-	//$('#ch1').click(function(){channel(1)});
-	//$('#ch2').click(function(){channel(2)});
+	setInterval(function(){checkSpecialContent()},5000);
 });
-/*
-function sideBarTop(){
-	setInterval(function(){
-	if(n==1){n=2;}else{n=1;}
-	$('#sideBarTop img').attr("src","src/imgBannerTop/"+n+".jpg")},6000);
-}
-function sideBarBottom(){
-	setInterval(function(){
-	if(m==3){m=4;}else{m=3;}
-	$('#sideBarBottom img').attr("src","src/imgBannerBottom/"+m+".jpg")},6000);
-}
-*/
-//Carica sia il testo a scorrimento di <marquee> sia i testi e le icone delle news a comparsa. I dati sono salvati in config/data.json
-function loadData(){
+
+function checkSpecialContent(){
 	$.ajax({
-		url: "config/data.json",
+		url: "config/specialContent.json",
+		dataType:"json",
+		success: function(data){
+			console.log(data.specialContentUrl);
+			if(data.specialContentUrl != "none"){
+				$.ajax({
+					url:"config/specialContent.php",
+					data:"request=0",
+					success: function(){window.location = data.specialContentUrl;}
+				});
+			}
+		},
+		statusCode:{300: console.log("jj")} 
+	});
+}
+
+//Carica sia il testo a scorrimento di <marquee> sia i testi e le icone delle news a comparsa. I dati sono salvati in config/data.json
+function getData(){	
+	$.ajax({
+		url: "config/result.json",
 		dataType: "json",
 		success: function(data){
 			//recupera e inserisce il testo del marquee
 			$('#bannerTop marquee p').text(data.marquee);
-			//recupera e inserisce le news 
+			//recupera e inserisce le news, ma prima cancella gli <li> già presenti
 			$.each(data.news, function(k) {
 				switch(data.news[k].iconType){
 					case "food":
@@ -63,7 +67,7 @@ function sideBarTop(url){
 //Cambia periodicamente le img di SideBarBottom. Gli url sono caricati da loadData()
 function sideBarBottom(url){
 	var i=0;
-	console.log(url[i]);
+	//console.log(url[i]);
 	setInterval(function(){
 	$('#sideBarBottom img').attr("src",url[i]);
 	i++;
@@ -90,8 +94,6 @@ function showNews() {
            , 6000
       );
 }
-
-
 
 //FUNZIONE PER CAMBIARE CANALE. USARE PLAYLIST VLC
 /*function channel(num){

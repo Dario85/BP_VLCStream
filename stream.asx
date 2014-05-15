@@ -1,4 +1,0 @@
-#EXTM3U
-#EXTINF:0,LaEFFE
-#EXTVLCOPT:program=5
-dvb-t://frequency=682000000:bandwidth=7
